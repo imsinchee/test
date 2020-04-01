@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track Vacancy</title>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-storage.js"></script>
+    <script src="script/script.js"></script>
+  </head>
+
+  <body onload="getLocation()">
+    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+
+    <script>
+      // TODO: Replace the following with your app's Firebase project configuration
+    </script>
+    <button type="button" onclick="getLocation()">Save All</button>
+    <!-- <button type="button" onclick="time()">Time</button> -->
+    <button type="button" id="startbutton">Pics</button>
+    <div class="camera">
+      <video id="video">Video stream not available.</video>
+    </div>
+    <canvas id="canvas"> </canvas>
+    <img
+      id="photo"
+      alt="The screen capture will appear in this box."
+      style="display: none;"
+    />
+  </body>
+</html>
+
+<script>
+  // The width and height of the captured photo. We will set the
+  // width to the value defined here, but the height will be
+  // calculated based on the aspect ratio of the input stream.
+</script>
