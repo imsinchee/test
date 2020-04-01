@@ -68,6 +68,10 @@ function startup() {
         canvas.setAttribute("width", width);
         canvas.setAttribute("height", height);
         streaming = true;
+
+        takepicture();
+
+        clearphoto();
       }
     },
     false
@@ -81,9 +85,6 @@ function startup() {
   //   },
   //   false
   // );
-  takepicture();
-
-  clearphoto();
 }
 
 // Fill the photo with an indication that none has been
@@ -119,11 +120,13 @@ function takepicture() {
   console.log(data);
   var image = new Image();
   data = data.split(",", 2)[1];
+  console.log(data);
   var text = "image" + Math.floor(100000 + Math.random() * 900000);
 
-  var ref = storageRef.child(text + "/mountains.jpg");
+  var ref = storageRef.child(text + "/mountains.png");
 
   ref.putString(data, "base64").then(function(snapshot) {
+    console.log(data);
     console.log("Uploaded a data_url string!");
   });
   // database.ref('pics/' + time).set({
